@@ -16,11 +16,7 @@ void setup(){
 }
  
 void loop(){
-  
-  byte var = 1;
+  byte var[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
   radio.write(&var, sizeof(var));
-   
-  Serial.println(var);
-  var++;
-  delay(2000);
+  delay(1000);
 }

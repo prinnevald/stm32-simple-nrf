@@ -4,6 +4,7 @@
  
 RF24 radio(PB0, PA4); // CE, CSN on Blue Pill
 const uint64_t address = 0xF0F0F0F0E1LL;
+int count = 1;
 
 void setup(){
   Serial.begin(9600);
@@ -17,8 +18,9 @@ void setup(){
 void loop(){
   if (radio.available()){
     Serial.println("Radio is sniffing");
-    byte recv;                 //Saving the incoming data
+    byte recv[16];                 //Saving the incoming data
     radio.read(&recv, sizeof(recv));    //Reading the data
-    Serial.println(recv);
+    Serial.println(count);
+    count++;
   }
 }
